@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:korean_words/korean_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
 
 // #docregion RWS-var
 class RandomWordsState extends State<RandomWords> {
-  final _suggestions = <WordPair>[];
-  final Set<WordPair> _saved = Set<WordPair>();
+  final _suggestionsK = <KoreanWords>[];
+  final Set<KoreanWords> _savedK = Set<KoreanWords>();
   final _biggerFont = const TextStyle(fontSize: 18.0);
   // #enddocregion RWS-var
 
@@ -35,20 +36,21 @@ class RandomWordsState extends State<RandomWords> {
           if (i.isOdd) return Divider(); /*2*/
 
           final index = i ~/ 2; /*3*/
-          if (index >= _suggestions.length) {
-            _suggestions.addAll(generateWordPairs().take(10)); /*4*/
+          if (index >= _suggestionsK.length) {
+            _suggestionsK.addAll(generateKoreanWords().take(10)); /*4*/
           }
-          return _buildRow(_suggestions[index]);
+          var suggestionsK = _suggestionsK;
+          return _buildRow(suggestionsK[index]);
         });
   }
   // #enddocregion _buildSuggestions
 
   // #docregion _buildRow
-  Widget _buildRow(WordPair pair) {
-    final bool alreadySaved = _saved.contains(pair);
+  Widget _buildRow(KoreanWords kw) {
+    final bool alreadySaved = _savedK.contains(kw);
     return ListTile(
       title: Text(
-        pair.asPascalCase,
+        kw.asString,
         style: _biggerFont,
       ),
       trailing: Icon(
@@ -58,9 +60,9 @@ class RandomWordsState extends State<RandomWords> {
       onTap: () {
         setState(() {
           if (alreadySaved) {
-            _saved.remove(pair);
+            _savedK.remove(kw);
           } else {
-            _saved.add(pair);
+            _savedK.add(kw);
           }
         });
       },
@@ -88,11 +90,11 @@ class RandomWordsState extends State<RandomWords> {
       MaterialPageRoute<void>(
         // Add 20 lines from here...
         builder: (BuildContext context) {
-          final Iterable<ListTile> tiles = _saved.map(
-                (WordPair pair) {
+          final Iterable<ListTile> tiles = _savedK.map(
+                (KoreanWords kw) {
               return ListTile(
                 title: Text(
-                  pair.asPascalCase,
+                  kw.asString,
                   style: _biggerFont,
                 ),
               );
@@ -105,7 +107,9 @@ class RandomWordsState extends State<RandomWords> {
 
           return Scaffold(
             appBar: AppBar(
-              title: Text('Saved Suggestions'),
+              title: Text(
+                'I \u2665 한글',
+                style: TextStyle(color: Colors.red) ),
             ),
             body: ListView(children: divided),
           );
