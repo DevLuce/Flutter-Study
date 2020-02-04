@@ -46,22 +46,22 @@ flutter:
    - assets/image_03.jpg
    - assets/image_04.jpg
 
-  fonts:
-    - family: SF-Pro-Text-Regular
-      fonts:
-        - asset: assets/SF-Pro-Text-Regular.otf
+  # fonts:
+  #   - family: SF-Pro-Text-Regular
+  #     fonts:
+  #       - asset: assets/SF-Pro-Text-Regular.otf
 
-    - family: SF-Pro-Text-Bold
-      fonts:
-        - asset: assets/SF-Pro-Text-Bold.otf
+  #   - family: SF-Pro-Text-Bold
+  #     fonts:
+  #       - asset: assets/SF-Pro-Text-Bold.otf
 
-    - family: Calibre-Semibold
-      fonts:
-        - asset: assets/Calibre Semibold.otf
+  #   - family: Calibre-Semibold
+  #     fonts:
+  #       - asset: assets/Calibre Semibold.otf
 
-    - family: CustomIcons
-      fonts:
-        - asset: assets/custom_icons.ttf
+  #   - family: CustomIcons
+  #     fonts:
+  #       - asset: assets/custom_icons.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

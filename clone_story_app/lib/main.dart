@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 46.0,
-                          fontFamily: "Calibre-Semibold",
+                          // fontFamily: "Calibre-Semibold",
                           letterSpacing: 1.0,
                         )),
                     IconButton(
@@ -141,7 +141,7 @@ class _MyAppState extends State<MyApp> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 46.0,
-                          fontFamily: "Calibre-Semibold",
+                          // fontFamily: "Calibre-Semibold",
                           letterSpacing: 1.0,
                         )),
                     IconButton(
@@ -273,7 +273,7 @@ class CardScrollWidget extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      fontFamily: "SF-Pro-Text-Regular")),
+                              ),),
                             ),
                             SizedBox(
                               height: 10.0,
